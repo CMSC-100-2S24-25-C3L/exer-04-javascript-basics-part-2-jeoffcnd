@@ -53,8 +53,21 @@ function generateUniqueID(fName, lName) {
 
 }
 
-function addAccount(fName, lName, email, age) {
+function addAccount(info) {
     
+
+    if (!Array.isArray(info) || info.length !== 4) {
+        // kulang
+        return false;
+    }
+
+    // gets the corresponding index of the list
+    let fName = info[0];
+    let lName = info[1];
+    let email = info[2];
+    let age = info[3];
+
+
     if (typeof fName !== "string" || typeof lName !== "string" || typeof email !== "string" || typeof age !== "number") {
         console.log("It does not satisfy one or more typeof.");
         return false;
@@ -71,10 +84,12 @@ function addAccount(fName, lName, email, age) {
     }
 
     if (!validator.isEmail(email)) {
+        console.log("Email is not valid");
         return false;
     }
 
-    let uniqueID = generateUniqueID(firstName, lastName);
+
+    let uniqueID = generateUniqueID(fName, lName);
     if (!uniqueID) {
         return false;
     }
@@ -94,3 +109,7 @@ function addAccount(fName, lName, email, age) {
 
 
 }
+
+
+// https://www.freecodecamp.org/news/module-exports-how-to-export-in-node-js-and-javascript/
+module.exports = { generateUniqueID, addAccount };
