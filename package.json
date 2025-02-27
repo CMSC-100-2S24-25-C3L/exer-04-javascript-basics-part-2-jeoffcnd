@@ -1,0 +1,24 @@
+{
+  "name": "exer-04-javascript-basics-part-2-jeoffcnd",
+  "version": "1.0.0",
+  
+  "main": "index.js",
+  "dependencies": {
+    "uuid": "^11.1.0",
+    "validator": "^13.12.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+  
+
+ 
+
+}
