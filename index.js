@@ -74,5 +74,23 @@ function addAccount(fName, lName, email, age) {
         return false;
     }
 
+    let uniqueID = generateUniqueID(firstName, lastName);
+    if (!uniqueID) {
+        return false;
+    }
+
+    let userData = fName + ',' + lName + ',' + email + ',' + age + ',' + uniqueID + "\n";
+    // for space
+    // combine it into the variable userData for the users.txt
+
+    // lab handout reference: https://nodejs.org/api/fs.html#fsappendfilesyncpath-data-options
+    try {
+        fs.appendFileSync('users.txt', userData, 'utf8');
+        console.log('The "data to append" was appended to file!');
+        return true;
+    } catch (err) {
+        return false;
+    }
+
 
 }
