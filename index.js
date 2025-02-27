@@ -33,7 +33,46 @@ function generateUniqueID(fName, lName) {
 
     
     // - unique alphanumeric string should be length 8
+    let uniqueString = '';
+    let uuid = uuidv4(); // Generate a UUID
+    let count = 0;
 
+    for (let i = 0; i < uuid.length && count < 8; i++) {
+        // get 8
+        let char = uuid[i];
+        if ((char >= 'a' && char <= 'z') || (char >= '0' && char <= '9')) {
+            // ang ilalagay lang is alphanumeric
+            uniqueString += char; // lagay sa unique string ung char
+            count++; // counter kung ilan na ung nilagay
+        }
+    }
+
+    let uniqueId = modified_fName[0] + modified_lName + uniqueString; // combine
+
+    return uniqueId;
+
+}
+
+function addAccount(fName, lName, email, age) {
+    
+    if (typeof fName !== "string" || typeof lName !== "string" || typeof email !== "string" || typeof age !== "number") {
+        console.log("It does not satisfy one or more typeof.");
+        return false;
+    }
+
+    if (fName === '' || lName === '' || email === '') {
+        console.log("Empty string");
+        return false;
+    }
+
+    if (age < 18) {
+        console.log("Age is not valid");
+        return false;
+    }
+
+    if (!validator.isEmail(email)) {
+        return false;
+    }
 
 
 }
